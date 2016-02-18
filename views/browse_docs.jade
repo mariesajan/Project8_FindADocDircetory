@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h2 Browse Doctors
+    if doctors !=   false
+        each doctor in doctors
+            .col-sm-4
+                    b Dr.#{doctor.full_name}
+                    br
+                    | Speciality:#{doctor.category}
+                    br
+                    | Location: #{doctor.street_address}
+                    br
+                    a(href="/doctors/browseDocDetails/#{doctor.doc_id}") >>Details
+    else
+        p Sorry  No Doctors found!!!

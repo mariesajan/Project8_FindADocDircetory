@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    a(href="/doctors/browseDoctors") < Go Back
+
+    h2 Dr. #{doctor.full_name}
+    span
+        a(href='/doctors/edit/#{doctor.doc_id}')
+            | Edit|
+        a(class='button alert tiny removeDoc',data-id="#{doctor.doc_id}")
+            | Delete
+    h4 Physician Information
+    ul
+        li  Full Name:  #{doctor.full_name}
+        if doctor.new_patients
+            li Accepting New Patients :  Yes
+        else
+            li Accepting New Patients :  No
+        li Speciality/Category: #{doctor.category}
+        li Graduation Date:    #{doctor.graduation_year}
+        li Practice:  #{doctor.practice_name}
+
+    h4 Practice Information
+    ul
+        li Name: #{doctor.full_name}
+        li Address:#{doctor.street_address}
+        if "#{doctor.new_patients}" != false
+            li Medicare Accepted :  Yes
+        else
+            li Medicare Accepted :  No

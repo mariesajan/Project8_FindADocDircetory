@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p We will help you find a doctor in your area
+  form(action='/find_doc',method='post')
+      select(name='state')
+          option Select a State
+          option(value='Alabama') Alabama
+          option(value='Alaska') Alaska
+          option(value='Arizona') Arizona
+          option(value='Arkansas') Arkansas
+          option(value='California') California
+      input(type='submit',value='Find')

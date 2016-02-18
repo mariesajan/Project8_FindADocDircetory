@@ -1,0 +1,30 @@
+doctype html
+html
+head
+    title= title
+    link(rel='stylesheet',href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js")
+    script(type="text/javascript",src="/js/main.js")
+    .row
+        .container
+        .col-sm-12
+            img(src='/images/header.jpg', alt='header_image',width="100%")
+            nav.navbar.navbar-default.navbarcolor
+                .container
+                    a.navbar-brand(href='/') Home
+                    a.navbar-brand(href='/doctors/browseDoctors') Browse Doctors
+                    a.navbar-brand(href='/doctors/addDoctors') Add Doctor
+                    a.navbar-brand(href='/categories/addCategory') Add Category
+    body
+        .row
+            .col-sm-9
+                !=messages()
+                block content
+            .col-sm-3
+                .panel.panel-primary
+                    .panel-heading Categories
+                    .panel-body
+                        include ./includes/categories.jade
+        footer
+            p Copyright by MMS

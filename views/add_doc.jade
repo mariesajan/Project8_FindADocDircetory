@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    h2 Add Doctor
+    form(action='/doctors/add_doc',method='post')
+        label Full Name:
+        input.form-control(type="text",name='fullName')
+        br
+        label Category:
+        br
+        select(name='category')
+            each category in categories
+                option(value='#{category.category_name}')  #{category.category_name}
+        br
+        label Accepting New Patients:
+        br
+        select(name='newPatients')
+            option(value = 'true') Yes
+            option(value = 'false') No
+        br
+        label Practice Name:
+        input.form-control(type="text",placeholder="Enter practice name",name='practiceName')
+        br
+        label Graduation Year:
+        input.form-control(type="text",placeholder="Enter the graduation year",name='graduationYear')
+        br
+        label Street Address:
+        input.form-control(type="text",placeholder="Enter the Street Address",name='streetAddress')
+        br
+        label City:
+        input.form-control(type="text",placeholder="Enter the city",name='city')
+        label State:
+        br
+        select(name='state')
+            option Select a State
+            option(value='Alabama') Alabama
+            option(value='Alaska') Alaska
+            option(value='Arizona') Arizona
+            option(value='Arkansas') Arkansas
+            option(value='California') California
+        br
+        label Zipcode
+        input.form-control(type="text",placeholder="Enter the zip code",name='zipCode')
+        br
+        input(type='submit',value='Add Doctor')

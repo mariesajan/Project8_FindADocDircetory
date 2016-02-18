@@ -1,0 +1,52 @@
+extends layout
+
+block content
+    h2 Edit Doctor
+    form(action='/doctors/edit_doc/#{doctor.doc_id}',method='post')
+        label Full Name:
+        input.form-control(type="text",name='fullName',value='#{doctor.full_name}')
+        br
+        label Category:
+        br
+        select(name='category')
+            each category in categories
+                if ("#{doctor.category}" ==  category)
+                    option(value='#{category.category_name}',selected='')  #{category.category_name}
+                else
+                    option(value='#{category.category_name}')  #{category.category_name}
+        br
+        label Accepting New Patients:
+        br
+        select(name='newPatients')
+            if doctor.new_patients != false
+                option(value = true, selected='') Yes
+                option(value = false) No
+            else
+                option(value = true) Yes
+                option(value = false, selected='') No
+        br
+        label Practice Name:
+        input.form-control(type="text",placeholder="Enter practice name",name='practiceName',value='#{doctor.practice_name}')
+        br
+        label Graduation Year:
+        input.form-control(type="text",placeholder="Enter the graduation year",name='graduationYear',value='#{doctor.graduation_year}')
+        br
+        label Street Address:
+        input.form-control(type="text",placeholder="Enter the Street Address",name='streetAddress',value='#{doctor.street_address}')
+        br
+        label City:
+        input.form-control(type="text",placeholder="Enter the city",name='city',value="#{doctor.city}")
+        label State:
+        br
+        select(name='state')
+            option(value='#{doctor.state}',selected='') #{doctor.state}
+            option(value='Alabama') Alabama
+            option(value='Alaska') Alaska
+            option(value='Arizona') Arizona
+            option(value='Arkansas') Arkansas
+            option(value='California') California
+        br
+        label Zipcode
+        input.form-control(type="text",placeholder="Enter the zip code",name='zipCode',value='#{doctor.zip}')
+        br
+        input(type='submit',value='Edit Doctor')
