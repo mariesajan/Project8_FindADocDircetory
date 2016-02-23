@@ -21,20 +21,33 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/find_doc', function(req, res, next) {
-    console.log('post of find');
-    console.log(req.body.state);
-    var query = " SELECT * FROM FINDADOC.DOCTORS WHERE STATE=? ";
-    client.execute(query, [req.body.state], function(err, results) {
-        if (err) {
-            console.log('error in query');
-            console.log(err);
-        } else {
-            console.log(results.rows);
-            res.render('browse_docs', {
-                doctors: results.rows
+    if(req.body.state == ''){ // if no state selected from the drop down, all the doctor details should be retreived
+      var query = " SELECT * FROM FINDADOC.DOCTORS";
+
+      client.execute(query, function(err, results) {
+          if (err) {
+              console.log('error in query');
+              console.log(err);
+          } else {
+              res.render('browse_docs', {
+                  doctors: results.rows
+              });
+          }
+      });
+    }else{
+        var query = " SELECT * FROM FINDADOC.DOCTORS WHERE STATE=? ";
+
+            client.execute(query, [req.body.state], function(err, results) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.render('browse_docs', {
+                        doctors: results.rows
+                    });
+                }
             });
-        }
-    });
+    }
+
 });
 
 module.exports = router;

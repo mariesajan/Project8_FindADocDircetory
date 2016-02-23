@@ -4,6 +4,6 @@ block content
     h2 Add Category
     form(action='/categories/add_cat',method='post')
         label Category Name:
-        input.form-control(type="text",name='categoryName')
+        input.form-control(type="text",name='categoryName',required='')
         br
         input(type='submit',value='Add Category')

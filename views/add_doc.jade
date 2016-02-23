@@ -4,35 +4,36 @@ block content
     h2 Add Doctor
     form(action='/doctors/add_doc',method='post')
         label Full Name:
-        input.form-control(type="text",name='fullName')
+        input.form-control(type="text",name='fullName',required='')
         br
         label Category:
         br
-        select(name='category')
+        select(name='category',required='')
+            option(value='') Select a Category
             each category in categories
                 option(value='#{category.category_name}')  #{category.category_name}
         br
         label Accepting New Patients:
         br
-        select(name='newPatients')
+        select(name='newPatients',required='')
             option(value = 'true') Yes
             option(value = 'false') No
         br
         label Practice Name:
-        input.form-control(type="text",placeholder="Enter practice name",name='practiceName')
+        input.form-control(type="text",placeholder="Enter practice name",name='practiceName',required='')
         br
         label Graduation Year:
-        input.form-control(type="text",placeholder="Enter the graduation year",name='graduationYear')
+        input.form-control(type="text",placeholder="Enter the graduation year",name='graduationYear',required='')
         br
         label Street Address:
-        input.form-control(type="text",placeholder="Enter the Street Address",name='streetAddress')
+        input.form-control(type="text",placeholder="Enter the Street Address",name='streetAddress',required='')
         br
         label City:
-        input.form-control(type="text",placeholder="Enter the city",name='city')
+        input.form-control(type="text",placeholder="Enter the city",name='city',required='')
         label State:
         br
-        select(name='state')
-            option Select a State
+        select(name='state',required='')
+            option(value='') Select a State
             option(value='Alabama') Alabama
             option(value='Alaska') Alaska
             option(value='Arizona') Arizona
@@ -40,6 +41,6 @@ block content
             option(value='California') California
         br
         label Zipcode
-        input.form-control(type="text",placeholder="Enter the zip code",name='zipCode')
+        input.form-control(type="text",placeholder="Enter the zip code",name='zipCode',required='')
         br
         input(type='submit',value='Add Doctor')

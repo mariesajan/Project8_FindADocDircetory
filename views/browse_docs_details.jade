@@ -1,7 +1,6 @@
 extends layout
 
 block content
-    a(href="/doctors/browseDoctors") < Go Back
 
     h2 Dr. #{doctor.full_name}
     span
@@ -24,7 +23,3 @@ block content
     ul
         li Name: #{doctor.full_name}
         li Address:#{doctor.street_address}
-        if "#{doctor.new_patients}" != false
-            li Medicare Accepted :  Yes
-        else
-            li Medicare Accepted :  No

@@ -22,3 +22,8 @@ label{
     padding-right: 150px;
     padding-top: 15px;
 }
+
+#errorMsg{
+  color: red;
+  background-color: #FFBABA;
+}

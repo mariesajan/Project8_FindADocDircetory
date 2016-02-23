@@ -1,52 +1,74 @@
-extends layout
-
-block content
-    h2 Edit Doctor
-    form(action='/doctors/edit_doc/#{doctor.doc_id}',method='post')
-        label Full Name:
-        input.form-control(type="text",name='fullName',value='#{doctor.full_name}')
-        br
-        label Category:
-        br
-        select(name='category')
-            each category in categories
-                if ("#{doctor.category}" ==  category)
-                    option(value='#{category.category_name}',selected='')  #{category.category_name}
-                else
-                    option(value='#{category.category_name}')  #{category.category_name}
-        br
-        label Accepting New Patients:
-        br
-        select(name='newPatients')
-            if doctor.new_patients != false
-                option(value = true, selected='') Yes
-                option(value = false) No
-            else
-                option(value = true) Yes
-                option(value = false, selected='') No
-        br
-        label Practice Name:
-        input.form-control(type="text",placeholder="Enter practice name",name='practiceName',value='#{doctor.practice_name}')
-        br
-        label Graduation Year:
-        input.form-control(type="text",placeholder="Enter the graduation year",name='graduationYear',value='#{doctor.graduation_year}')
-        br
-        label Street Address:
-        input.form-control(type="text",placeholder="Enter the Street Address",name='streetAddress',value='#{doctor.street_address}')
-        br
-        label City:
-        input.form-control(type="text",placeholder="Enter the city",name='city',value="#{doctor.city}")
-        label State:
-        br
-        select(name='state')
-            option(value='#{doctor.state}',selected='') #{doctor.state}
-            option(value='Alabama') Alabama
-            option(value='Alaska') Alaska
-            option(value='Arizona') Arizona
-            option(value='Arkansas') Arkansas
-            option(value='California') California
-        br
-        label Zipcode
-        input.form-control(type="text",placeholder="Enter the zip code",name='zipCode',value='#{doctor.zip}')
-        br
-        input(type='submit',value='Edit Doctor')
+doctype html
+html
+head
+    title= title
+    link(rel='stylesheet',href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js")
+    script(type="text/javascript",src="/js/edit_doc.js")
+    .row
+        .container
+        .col-sm-12
+            img(src='/images/header.jpg', alt='header_image',width="100%")
+            nav.navbar.navbar-default.navbarcolor
+                .container
+                    a.navbar-brand(href='/') Home
+                    a.navbar-brand(href='/doctors/browseDoctors') Browse Doctors
+                    a.navbar-brand(href='/doctors/addDoctors') Add Doctor
+                    a.navbar-brand(href='/categories/addCategory') Add Category
+    body
+        .row
+            .col-sm-9
+                !=messages()
+                #errorMsg
+                h2 Edit Doctor
+                form
+                    input.form-control(type="hidden",id='docId',value='#{doctor.doc_id}')
+                    br
+                    label Full Name:
+                    input.form-control(type="text",id='fullName',value='#{doctor.full_name}',disabled='')
+                    br
+                    label Category:
+                    br
+                    select(id='category',disabled='')
+                        each category in categories
+                            if doctor.category ==  category.category_name
+                                option(value='#{category.category_name}',selected='')  #{category.category_name}
+                            else
+                                option(value='#{category.category_name}')  #{category.category_name}
+                    br
+                    label Accepting New Patients:
+                    br
+                    select(id='newPatients')
+                        if doctor.new_patients != false
+                            option(value = 'true', selected='') Yes
+                            option(value = 'false') No
+                        else
+                            option(value = 'true') Yes
+                            option(value = 'false', selected='') No
+                    br
+                    label Practice Name:
+                    input.form-control(type="text",placeholder="Enter practice name",id='practiceName',value='#{doctor.practice_name}')
+                    br
+                    label Graduation Year:
+                    input.form-control(type="text",placeholder="Enter the graduation year",id='graduationYear',value='#{doctor.graduation_year}')
+                    br
+                    label Street Address:
+                    input.form-control(type="text",placeholder="Enter the Street Address",id='streetAddress',value='#{doctor.street_address}')
+                    br
+                    label City:
+                    input.form-control(type="text",placeholder="Enter the city",id='city',value="#{doctor.city}",disabled='')
+                    label State:
+                    br
+                    select(id='state',disabled='')
+                        option(value='#{doctor.state}',selected='') #{doctor.state}
+                        option(value='Alabama') Alabama
+                        option(value='Alaska') Alaska
+                        option(value='Arizona') Arizona
+                        option(value='Arkansas') Arkansas
+                        option(value='California') California
+                    br
+                    label Zipcode
+                    input.form-control(type="text",placeholder="Enter the zip code",id='zipCode',value='#{doctor.zip}')
+                    br
+                    input(type='submit',value='Edit Doctor',id='editSubmit')

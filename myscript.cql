@@ -24,9 +24,10 @@ CREATE TABLE findadoc.doctors
   );
 
 
-INSERT INTO doctors (doc_id, full_name, category, practice_name, street_address, city, state, zip, new_patients, graduation_year) VALUES (now(), 'Thomas Smith MD', 'General', 'Family Medical', '50 Main St.', 'Sunnyvale', 'CA', '94089', true, 1997);
 
-INSERT INTO doctors (doc_id, full_name, category, practice_name, street_address, city, state, zip, new_patients, graduation_year) VALUES (now(), 'Dennis Philip MD', 'Gynaecologist', 'Family Medical', '12345 Wildwood Ave.', 'Sunnyvale', 'CA', '94010', true, 2000);
+INSERT INTO doctors (doc_id, full_name, category, practice_name, street_address, city, state, zip, new_patients, graduation_year) VALUES (now(), 'Thomas Smith MD', 'General', 'Family Medical', '50 Main St.', 'Sunnyvale', 'California', '94089', true, 1997);
+
+INSERT INTO doctors (doc_id, full_name, category, practice_name, street_address, city, state, zip, new_patients, graduation_year) VALUES (now(), 'Dennis Philip MD', 'Gynaecologist', 'Family Medical', '12345 Wildwood Ave.', 'Sunnyvale', 'Alaska', '94010', true, 2000);
 
 
 
@@ -46,4 +47,5 @@ INSERT INTO categories (cat_id, category_name) VALUES (now(),'Pediatrician');
 
 -- CREATE INDEX  CATEGORY_INDEX on findadoc.doctors(category);
 
--- CREATE INDEX STATE_INDEX on findadoc.doctors(state);
+--Creating index for column 'state' to query the table 'doctors' using 'state'. Otherwise, we will get for omiting other PRIMARY KEYS
+CREATE INDEX STATE_INDEX on findadoc.doctors(state);
