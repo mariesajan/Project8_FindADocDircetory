@@ -17,6 +17,8 @@ You can filter the doctors based on the **Locations** or **Departments**.
 
 3.    Start the server.
 
+    ```
     npm start
+    ```
 
 4.  Open [http://localhost:3000](http://localhost:3000)
