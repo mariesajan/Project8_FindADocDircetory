@@ -1,18 +1,21 @@
 ## FindADoc Directory
 
-This application is to find the details of different doctors across different categories.
+This website finds the details of doctors across different departments.
 
-The user can filter the doctors based on the **Locations** or the **Departments** which they are working for.
+You can filter the doctors based on the `Locations` or `Departments`.
 
-Database used here is Cassandra. So [download cassandra](http://www.planetcassandra.org/cassandra/)
+### Installation
 
+Database used here is [Cassandra ](http://www.planetcassandra.org/cassandra/)
 
-Save the **myscript.cql** in your local path. Then open the cql shell and execute the myscript.cql using the command:
-> source '/filepath/myscript.cql';
+Run  `myscript.cql` in cql shell.
 
-This script file is for saving the keyspaces and the required tables in the database.
+     source '/filepath/myscript.cql';
 
-After that, start the server using the command:
-> npm start
+_This saves the keyspaces and the required tables in the database._
+
+Start the server.
+
+    npm start
 
 Invoke the website at port 3000.
