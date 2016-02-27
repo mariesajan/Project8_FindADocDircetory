@@ -6,7 +6,7 @@ You can filter the doctors based on the **Locations** or **Departments**.
 
 ### Installation
 
-Database used here is [Cassandra ](http://www.planetcassandra.org/cassandra/)
+Install [Cassandra](http://www.planetcassandra.org/cassandra/)
 
 Run  `myscript.cql` in cql shell.
 
