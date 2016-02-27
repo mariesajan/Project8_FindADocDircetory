@@ -6,17 +6,17 @@ You can filter the doctors based on the **Locations** or **Departments**.
 
 ### Installation
 
-Install [Cassandra](http://www.planetcassandra.org/cassandra/)
+1.  Install [Cassandra ](http://www.planetcassandra.org/cassandra/)
 
-Run  `myscript.cql` in cql shell.
+2.  Run  `myscript.cql` in cql shell.
 
-    # This saves the keyspaces and the required tables in the database.
-    source '/filepath/myscript.cql';
+      ```
+      # This saves the keyspaces and the required tables in the database.
+      source '/filepath/myscript.cql';
+      ```
 
-
-
-Start the server.
+3.    Start the server.
 
     npm start
 
-Open [http://localhost:3000](http://localhost:3000)
+4.  Open [http://localhost:3000](http://localhost:3000)
