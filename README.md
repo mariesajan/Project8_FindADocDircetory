@@ -1,5 +1,7 @@
 ## FindADoc
 
+An example project done as part of learning **node.js and cassandra**
+
 A web application to find the details of doctors across different departments.
 
 You can filter the doctors based on the **Locations** or **Departments**.
